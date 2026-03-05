@@ -1,6 +1,6 @@
 ## Love
 
-I am cloning a project from **Lovable.dev** with **Spring Boot** as the backend, so let me start by setting up the basics.
+I am cloning a \as the backend, so let me start by setting up the basics.
 
 ### How I initialized the project
 
