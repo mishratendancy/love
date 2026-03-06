@@ -7,8 +7,7 @@ I am cloning a \as the backend, so let me start by setting up the basics.
 1. **Clone from Lovable.dev**
 
    ```bash
-   git clone <lovable-dev-git-url>
-   cd love
+   git clone <lo
    ```
 
 2. **Make sure Java is installed**
