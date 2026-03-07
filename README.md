@@ -1,8 +1,7 @@
 ## Love
 
 I am cloning a \as the backend, so let me start by setting up the basics.
-
-### How I initialized the project
+initialized the project
 
 1. **Clone from Lovable.dev**
 
