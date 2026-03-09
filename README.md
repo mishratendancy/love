@@ -1,18 +1,59 @@
 ## Love
 
-I am cloning a \as the backend, so let me start by setting up the basics.
-initialized the project
+This project is an AI-assisted coding workflow built on **Spring Boot** with a **Spring Cloud API Gateway**, **LLM APIs with tools**, and a **RAG (Retrieval-Augmented Generation)** layer to avoid resending all code on every request and to reduce cost.
+
+### High-level architecture (from the diagram)
+
+- **User**: sends a prompt.
+- **Spring Cloud API Gateway**: entry point for all requests from the user.
+  - Forwards prompts to the thinking services.
+  - Buffers content and stores it in a model store (for example, S3).
+  - Sends the same data into the RAG system.
+- **All the services (thinking part)**: backend services that orchestrate reasoning and call tools.
+- **LLM APIs (has tools)**: large language model endpoints that can use tools to work with code, workspace, etc.
+- **Workspace Service**: manages the user’s workspace, files, and code context.
+- **Chat Service**: manages the chat session between the user and the AI.
+- **All the session storage**: persists session state across interactions.
+- **RAG**:
+  - Stores relevant code and context chunks.
+  - **Helps to not send all the code again and again**, reducing tokens and cost while keeping answers grounded.
+
+### Request flow
+
+1. **User prompt**
+   - The user sends a prompt.
+
+2. **Gateway routing**
+   - The prompt goes through the **Spring Cloud API Gateway**.
+   - The gateway buffers the content and writes it to storage (for example, an S3 bucket) and to the **RAG** index.
+
+3. **Thinking services**
+   - The gateway forwards the request to **thinking services**, which:
+     - Pull context from **RAG**, session storage, and workspace.
+     - Call **LLM APIs with tools** to perform reasoning and code operations.
+
+4. **Workspace / chat services**
+   - **Workspace Service** handles file and workspace operations.
+   - **Chat Service** handles conversation state and formatting of the response.
+
+5. **Response**
+   - A response is generated and returned to the user through the **API Gateway**.
+
+### Project initialization
+
+I am cloning a project from **Lovable.dev** with **Spring Boot** as the backend, so I started with:
 
 1. **Clone from Lovable.dev**
 
    ```bash
-   git clone <lo
+   git clone <lovable-dev-git-url>
+   cd love
    ```
 
 2. **Make sure Java is installed**
 
-   - Install **JDK 17+** on your machine.
-   - Confirm it works:
+   - Install **JDK 17+**.
+   - Verify:
 
      ```bash
      java -version
@@ -54,8 +95,6 @@ initialized the project
 
 ### Notes
 
-- I’ll add more details later about the Lovable.dev setup, frontend, and deployment.
-- Update commands/paths above to match the exact structure once the project stabilizes.
-
-
+- RAG is used so we don’t have to resend all the code on each request, which helps with latency and cost.
+- As the system evolves, update this README with concrete service names, storage details (e.g. exact S3 buckets), and deployment steps.
 
