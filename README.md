@@ -75,23 +75,7 @@ I am cloning a project from **Lovable.dev** with **Spring Boot** as the backend,
 
 4. **Run the app**
 
-   - Maven:
 
-     ```bash
-     ./mvnw spring-boot:run
-     ```
-
-   - Gradle:
-
-     ```bash
-     ./gradlew bootRun
-     ```
-
-   - Or run the built jar:
-
-     ```bash
-     java -jar target/*.jar
-     ```
 
 ### Notes
 
