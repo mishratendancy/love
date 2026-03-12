@@ -82,7 +82,6 @@ I am cloning a project from **Lovable.dev** with **Spring Boot** as the backend,
 - RAG is used so we don’t have to resend all the code on each request, which helps with latency and cost.
 - As the system evolves, update this README with concrete service names, storage details (e.g. exact S3 buckets), and deployment steps.
 
-### Being “proper” (production-minded)
 
 - **Clear contracts between services**: each service (gateway, thinking services, workspace, chat) should expose well-defined REST/gRPC APIs with versioning, so changes don’t break clients.
 - **Observability**: add logging, metrics, and tracing across the gateway, thinking services, and LLM calls to debug issues and understand latency/cost.
