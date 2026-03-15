@@ -78,8 +78,6 @@ I am cloning a project from **Lovable.dev** with **Spring Boot** as the backend,
 
 
 ### Notes
-
-- RAG is used so we don’t have to resend all the code on each request, which helps with latency and cost.
 - As the system evolves, update this README with concrete service names, storage details (e.g. exact S3 buckets), and deployment steps.
 
 
